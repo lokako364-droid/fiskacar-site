@@ -1,103 +1,602 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlRoot">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FISKA CAR | كراء السيارات بالرباط وتمارة</title>
+  <meta name="description" content="وكالة FISKA CAR لكراء السيارات الفاخرة بالرباط وتمارة. أسطول حقيقي بأفضل الأسعار.">
+  <title data-i18n="meta_title">FISKA CAR | كراء السيارات بالرباط وتمارة</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Cairo', sans-serif; background-color: #050505; color: #f3f4f6; }
+    body { font-family: 'Cairo', sans-serif; background-color: #050505; color: #f3f4f6; scroll-behavior: smooth; }
     .luxury-gradient { background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 100%); }
-    .red-glow { box-shadow: 0 0 25px rgba(220, 38, 38, 0.3); }
+    .red-glow { box-shadow: 0 0 25px rgba(220, 38, 38, 0.25); }
+    .red-border { border-color: rgba(220, 38, 38, 0.3); }
   </style>
 </head>
-<body class="bg-[#050505] text-gray-100 min-h-screen flex flex-col">
+<body class="bg-[#050505] text-gray-100 min-h-screen flex flex-col selection:bg-red-600 selection:text-white">
 
   <!-- Header -->
-  <header class="bg-black/90 border-b border-red-900/30 p-4 sticky top-0 z-50 backdrop-blur-md">
+  <header class="bg-black/95 border-b red-border p-4 sticky top-0 z-50 backdrop-blur-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="bg-red-600 text-white p-2 rounded-xl shadow-lg red-glow">
+        <div class="bg-red-600 text-white p-2.5 rounded-2xl shadow-lg red-glow">
           <i class="fa-solid fa-car-side text-xl"></i>
         </div>
-        <h1 class="text-2xl font-black tracking-wider text-white">FISKA <span class="text-red-600">CAR</span></h1>
+        <div>
+          <h1 class="text-2xl font-black tracking-wider text-white">FISKA <span class="text-red-600">CAR</span></h1>
+          <p class="text-[10px] text-gray-400 tracking-widest" data-i18n="sub_logo">LUXURY RENTAL</p>
+        </div>
       </div>
+      
       <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="#home" class="hover:text-red-500 transition">الرئيسية</a>
-        <a href="#fleet" class="hover:text-red-500 transition">السيارات</a>
-        <a href="#booking" class="hover:text-red-500 transition">حجز سيارة</a>
-        <a href="#contact" class="hover:text-red-500 transition">اتصل بنا</a>
+        <a href="#home" class="hover:text-red-500 transition" data-i18n="nav_home">الرئيسية</a>
+        <a href="#fleet" class="hover:text-red-500 transition" data-i18n="nav_fleet">السيارات</a>
+        <a href="#about" class="hover:text-red-500 transition" data-i18n="nav_about">من نحن</a>
+        <a href="#testimonials" class="hover:text-red-500 transition" data-i18n="nav_testimonials">آراء العملاء</a>
+        <a href="#faq" class="hover:text-red-500 transition" data-i18n="nav_faq">أسئلة شائعة</a>
+        <a href="#contact" class="hover:text-red-500 transition" data-i18n="nav_contact">اتصل بنا</a>
       </nav>
-      <a href="https://wa.me/212622177043?text=سلام، بغيت نستفسر على كراء السيارات" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-xl text-sm transition flex items-center gap-2 shadow-lg red-glow">
-        <i class="fa-brands fa-whatsapp text-lg"></i> حجز سريع
-      </a>
+
+      <div class="flex items-center gap-3">
+        <button onclick="toggleLanguage()" class="bg-gray-900 border border-gray-800 text-xs px-3 py-2 rounded-xl text-red-500 font-bold hover:bg-gray-800 transition">
+          <span id="langLabel">FR / AR</span>
+        </button>
+        <a href="https://wa.me/212622177043?text=سلام، بغيت نستفسر على كراء السيارات" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition hidden sm:flex items-center gap-2 shadow-lg red-glow">
+          <i class="fa-brands fa-whatsapp text-lg"></i> <span data-i18n="quick_booking">حجز سريع</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="home" class="relative luxury-gradient py-20 px-4 overflow-hidden border-b border-red-900/20">
+  <section id="home" class="relative luxury-gradient py-24 px-4 overflow-hidden border-b red-border">
     <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
-        <span class="bg-red-600/10 text-red-500 text-xs font-bold px-3 py-1.5 rounded-full border border-red-500/20 inline-block">الوكالة الأولى بالرباط وسلا وتمارة 🚗</span>
-        <h2 class="text-4xl lg:text-6xl font-black text-white leading-tight">رحلتك تبدأ مع <span class="text-red-600">FISKA CAR</span></h2>
-        <p class="text-gray-300 text-base lg:text-lg">استمتع بتجربة قيادة استثنائية مع أسطول سيارات فاخرة، مريحة، ومضمونة بأفضل الأسعار في المغرب.</p>
+        <span class="bg-red-600/10 text-red-500 text-xs font-bold px-4 py-2 rounded-full border border-red-500/20 inline-block" data-i18n="hero_badge">
+          🚗 الوكالة الأولى لكراء السيارات بالرباط وتمارة
+        </span>
+        <h2 class="text-4xl lg:text-6xl font-black text-white leading-tight" data-i18n="hero_title">
+          رحلتك تبدأ بفخامة مع <span class="text-red-600">FISKA CAR</span>
+        </h2>
+        <p class="text-gray-300 text-base lg:text-lg leading-relaxed" data-i18n="hero_desc">
+          استمتع بتجربة قيادة استثنائية مع أسطول سيارات حقيقي ومضمون بأفضل الأسعار في المغرب. خدمة تسليم سريعة بالرباط وسلا وتمارة.
+        </p>
         <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
-          <a href="#fleet" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl transition shadow-lg red-glow flex items-center gap-2">
-            استكشف السيارات <i class="fa-solid fa-arrow-left"></i>
+          <a href="#fleet" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3.5 rounded-2xl transition shadow-lg red-glow flex items-center gap-2">
+            <span data-i18n="explore_btn">استكشف السيارات</span> <i class="fa-solid fa-arrow-left"></i>
           </a>
-          <a href="#booking" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 text-white font-bold px-6 py-3 rounded-xl transition">
-            احجز الآن
+          <a href="#booking" class="bg-gray-900 hover:bg-gray-800 border border-gray-700 text-white font-bold px-6 py-3.5 rounded-2xl transition">
+            <span data-i18n="book_now_btn">احجز الآن</span>
           </a>
         </div>
       </div>
       <div class="lg:col-span-5">
-        <div class="rounded-3xl overflow-hidden shadow-2xl border border-red-900/40 bg-black p-2 red-glow">
-          <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" alt="Fiska Car Luxury" class="w-full h-80 object-cover rounded-2xl">
+        <div class="rounded-3xl overflow-hidden shadow-2xl border red-border bg-black p-2.5 red-glow">
+          <img src="IMG-20261109-WA0017_6ce7b739.jpg" alt="Fiska Car Real Fleet" class="w-full h-80 object-cover rounded-2xl">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Fleet Section -->
-  <section id="fleet" class="py-16 px-4 max-w-7xl mx-auto w-full">
-    <div class="text-center max-w-2xl mx-auto mb-12">
-      <h3 class="text-3xl font-black text-white mb-3">أسطول السيارات المتوفرة</h3>
-      <p class="text-gray-400 text-sm">سيارات حديثة، نظيفة، ومصانة بعناية لتلبية كل تطلعاتك</p>
+  <section id="fleet" class="py-20 px-4 max-w-7xl mx-auto w-full">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h3 class="text-3xl lg:text-4xl font-black text-white mb-3" data-i18n="fleet_title">أسطول السيارات المتوفرة</h3>
+      <p class="text-gray-400 text-sm" data-i18n="fleet_desc">سيارات حقيقية، نظيفة ومصانة بعناية لتلبية كل تطلعاتك الشخصية والمهنية</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       
-      <!-- Car 1 -->
-      <div class="bg-black border border-red-900/30 rounded-3xl overflow-hidden shadow-xl hover:border-red-600 transition group">
-        <div class="h-56 overflow-hidden relative bg-gray-950">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Dacia Logan" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-          <span class="absolute top-3 right-3 bg-red-600 text-white font-bold text-xs px-3 py-1 rounded-full">الأكثر طلباً</span>
+      <!-- Car 1: Renault Clio 5 -->
+      <div class="bg-black border red-border rounded-3xl overflow-hidden shadow-xl hover:border-red-600 transition group flex flex-col">
+        <div class="h-60 overflow-hidden relative bg-gray-950">
+          <img src="IMG-20261109-WA0017_6ce7b739.jpg" alt="Renault Clio 5" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <span class="absolute top-3 right-3 bg-red-600 text-white font-bold text-xs px-3 py-1.5 rounded-full shadow" data-i18n="tag_luxury">فاخرة</span>
         </div>
-        <div class="p-6 space-y-3">
-          <h4 class="text-xl font-bold text-white">داسيا لوجان (Dacia Logan)</h4>
-          <p class="text-gray-400 text-xs">مريحة، اقتصادية في استهلاك الوقود ومثالية للعائلات والمدن.</p>
-          <div class="flex items-center justify-between pt-4 mt-2 border-t border-gray-900">
+        <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-bold text-white mb-1">رينو كليو 5 (Renault Clio 5)</h4>
+            <p class="text-gray-400 text-xs leading-relaxed" data-i18n="clio_desc">فخامة عالية، تقنيات متطورة جداً، راحة قصوى في السفر وإطلالة مميزة تليق بمناسباتك.</p>
+            <ul class="text-gray-300 text-xs space-y-1.5 mt-3 pt-3 border-t border-gray-900">
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_lux_interior">صالون داخلي راقي جداً</span></li>
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_tech">تقنيات مساعدة القيادة</span></li>
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_quiet">عزل صوتي فائق</span></li>
+            </ul>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-gray-900">
             <div>
-              <span class="text-xs text-gray-400 block">السعر اليومي</span>
-              <span class="text-red-500 font-extrabold text-xl">249 درهم</span>
+              <span class="text-xs text-gray-400 block" data-i18n="daily_price">السعر اليومي</span>
+              <span class="text-red-500 font-extrabold text-2xl">300 <span class="text-sm font-normal text-gray-400">MAD</span></span>
             </div>
-            <a href="https://wa.me/212622177043?text=سلام، بغيت نحجز داسيا لوجان" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2.5 rounded-xl text-sm transition shadow">حجز واتساب</a>
+            <a href="https://wa.me/212622177043?text=سلام، بغيت نحجز رينو كليو 5" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition shadow red-glow" data-i18n="book_whatsapp">حجز واتساب</a>
           </div>
         </div>
       </div>
 
-      <!-- Car 2 -->
-      <div class="bg-black border border-red-900/30 rounded-3xl overflow-hidden shadow-xl hover:border-red-600 transition group">
-        <div class="h-56 overflow-hidden relative bg-gray-950">
-          <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c351?auto=format&fit=crop&w=800&q=80" alt="Dacia Sandero" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-          <span class="absolute top-3 right-3 bg-red-600 text-white font-bold text-xs px-3 py-1 rounded-full">عصرية</span>
+      <!-- Car 2: Dacia Logan -->
+      <div class="bg-black border red-border rounded-3xl overflow-hidden shadow-xl hover:border-red-600 transition group flex flex-col">
+        <div class="h-60 overflow-hidden relative bg-gray-950">
+          <img src="IMG-20261109-WA0013_46210126.jpg" alt="Dacia Logan" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <span class="absolute top-3 right-3 bg-red-600 text-white font-bold text-xs px-3 py-1.5 rounded-full shadow" data-i18n="tag_popular">الأكثر طلباً</span>
         </div>
-        <div class="p-6 space-y-3">
-          <h4 class="text-xl font-bold text-white">داسيا سانديرو (Dacia Sandero)</h4>
-          <p class="text-gray-400 text-xs">تصميم رياضي شبابي، سهلة القيادة ومرنة في الزحام.</p>
-          <div class="flex items-center justify-between pt-4 mt-2 border-t border-gray-900">
+        <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-bold text-white mb-1">داسيا لوجان (Dacia Logan)</h4>
+            <p class="text-gray-400 text-xs leading-relaxed" data-i18n="logan_desc">سيارة مريحة، اقتصادية جداً في استهلاك الوقود، ومثالية للعائلات والرحلات الطويلة داخل وخارج المدينة.</p>
+            <ul class="text-gray-300 text-xs space-y-1.5 mt-3 pt-3 border-t border-gray-900">
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_diesel">مكينة ديزل اقتصادية</span></li>
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_ac">تكييف هواء ممتاز</span></li>
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_bag">صندوق أمتعة واسع</span></li>
+            </ul>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-gray-900">
             <div>
-              <span class="text-xs text-gray-400
-  
+              <span class="text-xs text-gray-400 block" data-i18n="daily_price">السعر اليومي</span>
+              <span class="text-red-500 font-extrabold text-2xl">249 <span class="text-sm font-normal text-gray-400">MAD</span></span>
+            </div>
+            <a href="https://wa.me/212622177043?text=سلام، بغيت نحجز داسيا لوجان" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition shadow red-glow" data-i18n="book_whatsapp">حجز واتساب</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Car 3: Opel Corsa -->
+      <div class="bg-black border red-border rounded-3xl overflow-hidden shadow-xl hover:border-red-600 transition group flex flex-col">
+        <div class="h-60 overflow-hidden relative bg-gray-950">
+          <img src="IMG-20261109-WA0009_47eb7a2a.jpg" alt="Opel Corsa" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          <span class="absolute top-3 right-3 bg-red-600 text-white font-bold text-xs px-3 py-1.5 rounded-full shadow" data-i18n="tag_modern">عصرية</span>
+        </div>
+        <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+          <div>
+            <h4 class="text-xl font-bold text-white mb-1">أوبل كورسا (Opel Corsa)</h4>
+            <p class="text-gray-400 text-xs leading-relaxed" data-i18n="sandero_desc">تصميم رياضي شبابي أنيق، سهلة المناورة والمرونة في زحام المدن، وثبات عالي على الطرقات.</p>
+            <ul class="text-gray-300 text-xs space-y-1.5 mt-3 pt-3 border-t border-gray-900">
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_diesel">مكينة ديزل اقتصادية</span></li>
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_screen">شاشة تفاعلية وبلوتوث</span></li>
+              <li><i class="fa-solid fa-check text-red-500 ml-2"></i> <span data-i18n="spec_urban">سهلة الاصطفاف والقيادة</span></li>
+            </ul>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-gray-900">
+            <div>
+              <span class="text-xs text-gray-400 block" data-i18n="daily_price">السعر اليومي</span>
+              <span class="text-red-500 font-extrabold text-2xl">249 <span class="text-sm font-normal text-gray-400">MAD</span></span>
+            </div>
+            <a href="https://wa.me/212622177043?text=سلام، بغيت نحجز أوبل كورسا" target="_blank" class="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition shadow red-glow" data-i18n="book_whatsapp">حجز واتساب</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-20 px-4 bg-black/60 border-t red-border">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <span class="bg-red-600/10 text-red-500 text-xs font-bold px-3 py-1.5 rounded-full border border-red-500/20" data-i18n="about_tag">من نحن</span>
+        <h3 class="text-3xl font-black text-white" data-i18n="about_title">وكالة FISKA CAR بالرباط وتمارة</h3>
+        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="about_desc1">
+          نحن وكالة رائدة في مجال كراء السيارات بالرباط وسلا وتمارة. نهدف إلى تقديم خدمات استثنائية تتميز بالاحترافية، السرعة، والمصداقية المطلقة مع زبنائنا الكرام.
+        </p>
+        <p class="text-gray-400 text-sm leading-relaxed" data-i18n="about_desc2">
+          جميع سياراتنا حقيقية ومضمونة، وتخضع لصيانة دورية صارمة لضمان أمانكم وراحتكم على الطريق، مع أسعار تنافسية.
+        </p>
+        <div class="grid grid-cols-2 gap-4 pt-4">
+          <div class="bg-black p-4 rounded-2xl border red-border">
+            <h4 class="text-red-500 font-black text-2xl">100%</h4>
+            <p class="text-gray-400 text-xs mt-1" data-i18n="stat_safe">سيارات حقيقية وآمنة</p>
+          </div>
+          <div class="bg-black p-4 rounded-2xl border red-border">
+            <h4 class="text-red-500 font-black text-2xl">24/7</h4>
+            <p class="text-gray-400 text-xs mt-1" data-i18n="stat_support">دعم واستجابة سريعة</p>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <img src="IMG-20261109-WA0012_09ca7ba2.jpg" alt="Peugeot fleet" class="rounded-3xl object-cover h-64 w-full border red-border">
+        <img src="IMG-20261109-WA0007_0ce404dd.jpg" alt="Opel car" class="rounded-3xl object-cover h-64 w-full border red-border mt-8">
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking" class="py-20 px-4">
+    <div class="max-w-3xl mx-auto bg-black border red-border p-8 lg:p-12 rounded-3xl shadow-2xl red-glow">
+      <div class="text-center mb-8">
+        <h3 class="text-3xl font-black text-white mb-2" data-i18n="booking_title">حجز موعد عبر الواتساب</h3>
+        <p class="text-gray-400 text-sm" data-i18n="booking_subtitle">املأ المعلومات أدناه وسيتم تحويلك مباشرة لتأكيد الحجز عبر واتساب الوكالة</p>
+      </div>
+
+      <form id="bookingForm" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-2" data-i18n="form_name">الاسم الكامل</label>
+            <input type="text" id="fullName" required class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-3.5 text-white focus:border-red-600 outline-none text-sm transition" placeholder="أدخل اسمك الكامل">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-2" data-i18n="form_phone">رقم الهاتف</label>
+            <input type="tel" id="phone" required class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-3.5 text-white focus:border-red-600 outline-none text-sm transition" placeholder="06xxxxxxxx">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-2" data-i18n="form_car">اختر السيارة</label>
+            <select id="carSelect" class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-3.5 text-white focus:border-red-600 outline-none text-sm transition">
+              <option value="رينو كليو 5 (300 MAD)">رينو كليو 5 - 300 درهم / اليوم</option>
+              <option value="داسيا لوجان (249 MAD)">داسيا لوجان - 249 درهم / اليوم</option>
+              <option value="أوبل كورسا (249 MAD)">أوبل كورسا - 249 درهم / اليوم</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-2" data-i18n="form_location">مكان الاستلام</label>
+            <input type="text" id="location" required class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-3.5 text-white focus:border-red-600 outline-none text-sm transition" placeholder="الرباط / تمارة / محطة القطار">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-2" data-i18n="form_start">تاريخ الاستلام</label>
+            <input type="date" id="startDate" required class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-3.5 text-white focus:border-red-600 outline-none text-sm transition">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-gray-300 mb-2" data-i18n="form_end">تاريخ الإرجاع</label>
+            <input type="date" id="endDate" required class="w-full bg-gray-900 border border-gray-800 rounded-2xl p-3.5 text-white focus:border-red-600 outline-none text-sm transition">
+          </div>
+        </div>
+
+        <button type="button" onclick="sendWhatsAppBooking()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold p-4 rounded-2xl transition shadow-lg red-glow flex items-center justify-center gap-2 mt-6">
+          <i class="fa-brands fa-whatsapp text-xl"></i> <span data-i18n="form_submit">إرسال طلب الحجز عبر الواتساب</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20 px-4 bg-black/40 border-t red-border">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h3 class="text-3xl font-black text-white mb-3" data-i18n="testi_title">آراء عملائنا الأفاضل</h3>
+        <p class="text-gray-400 text-sm" data-i18n="testi_desc">شهادات حقيقية من عملاء اعتمدوا على خدماتنا في الرباط وتمارة</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-black border red-border p-6 rounded-3xl space-y-4 shadow-xl">
+          <div class="flex text-amber-500 gap-1 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-gray-300 text-xs leading-relaxed" data-i18n="testi_1">"خدمة ممتازة واحترافية. استلمت السيارة في تمارة في الوقت المحدد وكانت نظيفة جداً. شكراً لفريق FISKA CAR."</p>
+          <div class="flex items-center gap-3 pt-2 border-t border-gray-900">
+            <div class="bg-red-600/20 text-red-500 font-bold w-10 h-10 rounded-full flex items-center justify-center text-sm">ي</div>
+            <div>
+              <h5 class="text-white text-xs font-bold">يوسف العلوي</h5>
+              <span class="text-gray-500 text-[10px]">الرباط</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-black border red-border p-6 rounded-3xl space-y-4 shadow-xl">
+          <div class="flex text-amber-500 gap-1 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-gray-300 text-xs leading-relaxed" data-i18n="testi_2">"أحسن وكالة تعاملت معها، الأسعار جد مناسبة في داسيا لوجان، والمعاملة راقية جداً."</p>
+          <div class="flex items-center gap-3 pt-2 border-t border-gray-900">
+            <div class="bg-red-600/20 text-red-500 font-bold w-10 h-10 rounded-full flex items-center justify-center text-sm">م</div>
+            <div>
+              <h5 class="text-white text-xs font-bold">مهدي بناني</h5>
+              <span class="text-gray-500 text-[10px]">تمارة</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-black border red-border p-6 rounded-3xl space-y-4 shadow-xl">
+          <div class="flex text-amber-500 gap-1 text-sm">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="text-gray-300 text-xs leading-relaxed" data-i18n="testi_3">"رينو كليو 5 كانت في قمة الفخامة والنظافة. سهولة في الحجز والتسليم عبر الواتساب. أنصح بهم بشدة."</p>
+          <div class="flex items-center gap-3 pt-2 border-t border-gray-900">
+            <div class="bg-red-600/20 text-red-500 font-bold w-10 h-10 rounded-full flex items-center justify-center text-sm">ك</div>
+            <div>
+              <h5 class="text-white text-xs font-bold">كريمة الإدريسي</h5>
+              <span class="text-gray-500 text-[10px]">سلا</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 px-4 max-w-4xl mx-auto w-full">
+    <div class="text-center mb-16">
+      <h3 class="text-3xl font-black text-white mb-3" data-i18n="faq_title">الأسئلة الشائعة</h3>
+      <p class="text-gray-400 text-sm" data-i18n="faq_desc">إجابات على أبرز تساؤلاتكم حول شروط وأسعار كراء السيارات</p>
+    </div>
+
+    <div class="space-y-4">
+      <div class="bg-black border red-border p-6 rounded-2xl">
+        <h4 class="text-white font-bold text-sm mb-2" data-i18n="faq_q1">ما هي الشروط المطلوبة لكراء سيارة؟</h4>
+        <p class="text-gray-400 text-xs leading-relaxed" data-i18n="faq_a1">يتطلب توفر رخصة قيادة سارية المفعول، بطاقة الوطنية أو جواز السفر، وسن قانوني لا يقل عن 21 سنة.</p>
+      </div>
+
+      <div class="bg-black border red-border p-6 rounded-2xl">
+        <h4 class="text-white font-bold text-sm mb-2" data-i18n="faq_q2">هل تشمل الأسعار التأمين والتوصيل؟</h4>
+        <p class="text-gray-400 text-xs leading-relaxed" data-i18n="faq_a2">نعم، الأسعار واضحة وتتناسب مع مدة الكراء، مع إمكانية التوصيل المجاني أو الرمزي داخل الرباط وتمارة.</p>
+      </div>
+
+      <div class="bg-black border red-border p-6 rounded-2xl">
+        <h4 class="text-white font-bold text-sm mb-2" data-i18n="faq_q3">كيف يمكنني تأكيد الحجز بسرعة؟</h4>
+        <p class="text-gray-400 text-xs leading-relaxed" data-i18n="faq_a3">يمكنك الحجز مباشرة عبر ملء استمارة الموقع والنقر على زر الواتساب، أو الاتصال بنا مباشرة على الرقم الموضح.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location Map Section -->
+  <section class="py-12 px-4 max-w-7xl mx-auto w-full">
+    <div class="bg-black border red-border p-6 rounded-3xl text-center space-y-4 shadow-xl">
+      <h3 class="text-xl font-bold text-white flex items-center justify-center gap-2">
+        <i class="fa-solid fa-location-dot text-red-600"></i> <span data-i18n="map_title">موقعنا الجغرافي - الرباط وتمارة</span>
+      </h3>
+      <p class="text-gray-400 text-xs" data-i18n="map_desc">نغطي كافة أحياء الرباط، سلا، وتمارة مع خدمة التوصيل السريع للمحطات والمطارات.</p>
+      <div class="rounded-2xl overflow-hidden h-64 border border-gray-800">
+        <iframe title="Rabat Temara Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106376.51737719067!2d-6.8906354!3d33.9715873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b871f50f5c1%3A0x3b2a2a07530e7c5c!2sRabat%2C%20Morocco!5e0!3m2!1sen!2sma!4v1650000000000!5m2!1sen!2sma" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-4 max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="space-y-6">
+      <span class="bg-red-600/10 text-red-500 text-xs font-bold px-3 py-1.5 rounded-full border border-red-500/20" data-i18n="contact_tag">اتصل بنا</span>
+      <h3 class="text-3xl font-black text-white" data-i18n="contact_title">تواصل مع وكالة FISKA CAR مباشرة</h3>
+      <p class="text-gray-400 text-sm leading-relaxed" data-i18n="contact_desc">
+        فريقنا رهن إشارتكم طيلة أيام الأسبوع للإجابة على استفساراتكم وتلبية حجوزاتكم في أقرب وقت.
+      </p>
+      <div class="space-y-4 pt-2">
+        <p class="text-gray-300 text-sm flex items-center gap-3">
+          <span class="bg-red-600/20 text-red-500 p-2.5 rounded-xl"><i class="fa-solid fa-location-dot"></i></span>
+          <span data-i18n="contact_address">الرباط / تمارة، المغرب</span>
+        </p>
+        <p class="text-gray-300 text-sm flex items-center gap-3">
+          <span class="bg-red-600/20 text-red-500 p-2.5 rounded-xl"><i class="fa-solid fa-phone"></i></span>
+          +212 622-177043 / +212 750-525307
+        </p>
+        <p class="text-gray-300 text-sm flex items-center gap-3">
+          <span class="bg-red-600/20 text-red-500 p-2.5 rounded-xl"><i class="fa-brands fa-whatsapp"></i></span>
+          +212 622-177043
+        </p>
+      </div>
+      <div class="flex gap-4 pt-2">
+        <a href="https://www.instagram.com/fiska_car/" target="_blank" class="bg-black hover:bg-gray-900 p-3.5 rounded-2xl border red-border text-red-500 transition shadow">
+          <i class="fa-brands fa-instagram text-xl"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank" class="bg-black hover:bg-gray-900 p-3.5 rounded-2xl border red-border text-blue-500 transition shadow">
+          <i class="fa-brands fa-facebook text-xl"></i>
+        </a>
+        <a href="https://wa.me/212622177043" target="_blank" class="bg-black hover:bg-gray-900 p-3.5 rounded-2xl border red-border text-green-500 transition shadow">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+        </a>
+      </div>
+    </div>
+    
+    <div class="bg-black border red-border p-8 rounded-3xl shadow-xl space-y-6">
+      <h4 class="text-xl font-bold text-white" data-i18n="hours_title">ساعات العمل</h4>
+      <div class="space-y-3 text-sm">
+        <div class="flex justify-between pb-3 border-b border-gray-900">
+          <span class="text-gray-400" data-i18n="days_week">الإثنين - السبت</span>
+          <span class="text-white font-bold">08:00 - 22:00</span>
+        </div>
+        <div class="flex justify-between pb-3 border-b border-gray-900">
+          <span class="text-gray-400" data-i18n="days_sun">الأحد</span>
+          <span class="text-white font-bold" data-i18n="hours_sun">09:00 - 20:00</span>
+        </div>
+      </div>
+      <a href="https://wa.me/212622177043" target="_blank" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold p-3.5 rounded-xl transition shadow block text-center text-sm red-glow">
+        <i class="fa-brands fa-whatsapp ml-2"></i> <span data-i18n="chat_whatsapp">محادثة فورية عبر واتساب</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-auto bg-black border-t red-border py-8 text-center text-gray-500 text-xs space-y-3">
+    <div class="flex justify-center gap-6 font-semibold text-gray-400 text-xs">
+      <a href="#home" class="hover:text-red-500 transition" data-i18n="nav_home">الرئيسية</a>
+      <a href="#fleet" class="hover:text-red-500 transition" data-i18n="nav_fleet">السيارات</a>
+      <a href="#about" class="hover:text-red-500 transition" data-i18n="nav_about">من نحن</a>
+      <a href="#contact" class="hover:text-red-500 transition" data-i18n="nav_contact">اتصل بنا</a>
+    </div>
+    <p>© 2026 FISKA CAR. <span data-i18n="footer_rights">جميع الحقوق محفوظة بالرباط وتمارة.</span></p>
+  </footer>
+
+  <!-- JavaScript & Language System -->
+  <script>
+    const translations = {
+      ar: {
+        meta_title: "FISKA CAR | كراء السيارات بالرباط وتمارة",
+        sub_logo: "LUXURY RENTAL",
+        nav_home: "الرئيسية",
+        nav_fleet: "السيارات",
+        nav_about: "من نحن",
+        nav_testimonials: "آراء العملاء",
+        nav_faq: "أسئلة شائعة",
+        nav_contact: "اتصل بنا",
+        quick_booking: "حجز سريع",
+        hero_badge: "🚗 الوكالة الأولى لكراء السيارات بالرباط وتمارة",
+        hero_title: "رحلتك تبدأ بفخامة مع FISKA CAR",
+        hero_desc: "استمتع بتجربة قيادة استثنائية مع أسطول سيارات حقيقي ومضمون بأفضل الأسعار في المغرب. خدمة تسليم سريعة بالرباط وسلا وتمارة.",
+        explore_btn: "استكشف السيارات",
+        book_now_btn: "احجز الآن",
+        fleet_title: "أسطول السيارات المتوفرة",
+        fleet_desc: "سيارات حقيقية، نظيفة ومصانة بعناية لتلبية كل تطلعاتك الشخصية والمهنية",
+        tag_popular: "الأكثر طلباً",
+        tag_modern: "عصرية",
+        tag_luxury: "فاخرة",
+        logan_desc: "سيارة مريحة، اقتصادية جداً في استهلاك الوقود، ومثالية للعائلات والرحلات الطويلة داخل وخارج المدينة.",
+        clio_desc: "فخامة عالية، تقنيات متطورة جداً، راحة قصوى في السفر وإطلالة مميزة تليق بمناسباتك.",
+        spec_diesel: "مكينة ديزل اقتصادية",
+        spec_ac: "تكييف هواء ممتاز",
+        spec_bag: "صندوق أمتعة واسع",
+        spec_screen: "شاشة تفاعلية وبلوتوث",
+        spec_urban: "سهلة الاصطفاف والقيادة",
+        spec_lux_interior: "صالون داخلي راقي جداً",
+        spec_tech: "تقنيات مساعدة القيادة",
+        spec_quiet: "عزل صوتي فائق",
+        daily_price: "السعر اليومي",
+        book_whatsapp: "حجز واتساب",
+        about_tag: "من نحن",
+        about_title: "وكالة FISKA CAR بالرباط وتمارة",
+        about_desc1: "نحن وكالة رائدة في مجال كراء السيارات بالرباط وسلا وتمارة. نهدف إلى تقديم خدمات استثنائية تتميز بالاحترافية، السرعة، والمصداقية المطلقة مع زبنائنا الكرام.",
+        about_desc2: "جميع سياراتنا حقيقية ومضمونة، وتخضع لصيانة دورية صارمة لضمان أمانكم وراحتكم على الطريق، مع أسعار تنافسية.",
+        stat_safe: "سيارات حقيقية وآمنة",
+        stat_support: "دعم واستجابة سريعة",
+        booking_title: "حجز موعد عبر الواتساب",
+        booking_subtitle: "املأ المعلومات أدناه وسيتم تحويلك مباشرة لتأكيد الحجز عبر واتساب الوكالة",
+        form_name: "الاسم الكامل",
+        form_phone: "رقم الهاتف",
+        form_car: "اختر السيارة",
+        form_location: "مكان الاستلام",
+        form_start: "تاريخ الاستلام",
+        form_end: "تاريخ الإرجاع",
+        form_submit: "إرسال طلب الحجز عبر الواتساب",
+        testi_title: "آراء عملائنا الأفاضل",
+        testi_desc: "شهادات حقيقية من عملاء اعتمدوا على خدماتنا في الرباط وتمارة",
+        testi_1: "\"خدمة ممتازة واحترافية. استلمت السيارة في تمارة في الوقت المحدد وكانت نظيفة جداً. شكراً لفريق FISKA CAR.\"",
+        testi_2: "\"أحسن وكالة تعاملت معها، الأسعار جد مناسبة في داسيا لوجان، والمعاملة راقية جداً.\"",
+        testi_3: "\"رينو كليو 5 كانت في قمة الفخامة والنظافة. سهولة في الحجز والتسليم عبر الواتساب. أنصح بهم بشدة.\"",
+        faq_title: "الأسئلة الشائعة",
+        faq_desc: "إجابات على أبرز تساؤلاتكم حول شروط وأسعار كراء السيارات",
+        faq_q1: "ما هي الشروط المطلوبة لكراء سيارة؟",
+        faq_a1: "يتطلب توفر رخصة قيادة سارية المفعول، بطاقة الوطنية أو جواز السفر، وسن قانوني لا يقل عن 21 سنة.",
+        faq_q2: "هل تشمل الأسعار التأمين والتوصيل؟",
+        faq_a2: "نعم، الأسعار واضحة وتتناسب مع مدة الكراء، مع إمكانية التوصيل المجاني أو الرمزي داخل الرباط وتمارة.",
+        faq_q3: "كيف يمكنني تأكيد الحجز بسرعة؟",
+        faq_a3: "يمكنك الحجز مباشرة عبر ملء استمارة الموقع والنقر على زر الواتساب، أو الاتصال بنا مباشرة على الرقم الموضح.",
+        map_title: "موقعنا الجغرافي - الرباط وتمارة",
+        map_desc: "نغطي كافة أحياء الرباط، سلا، وتمارة مع خدمة التوصيل السريع للمحطات والمطارات.",
+        contact_tag: "اتصل بنا",
+        contact_title: "تواصل مع وكالة FISKA CAR مباشرة",
+        contact_desc: "فريقنا رهن إشارتكم طيلة أيام الأسبوع للإجابة على استفساراتكم وتلبية حجوزاتكم في أقرب وقت.",
+        contact_address: "الرباط / تمارة، المغرب",
+        hours_title: "ساعات العمل",
+        days_week: "الإثنين - السبت",
+        days_sun: "الأحد",
+        hours_sun: "09:00 - 20:00",
+        chat_whatsapp: "محادثة فورية عبر واتساب",
+        footer_rights: "جميع الحقوق محفوظة بالرباط وتمارة."
+      },
+      fr: {
+        meta_title: "FISKA CAR | Location de Voiture Rabat Temara",
+        sub_logo: "LUXURY RENTAL",
+        nav_home: "Accueil",
+        nav_fleet: "Véhicules",
+        nav_about: "À propos",
+        nav_testimonials: "Avis Clients",
+        nav_faq: "FAQ",
+        nav_contact: "Contact",
+        quick_booking: "Réservation Rapide",
+        hero_badge: "🚗 N°1 de la Location de Voiture à Rabat & Témara",
+        hero_title: "Votre voyage commence avec élégance chez FISKA CAR",
+        hero_desc: "Profitez d'une expérience de conduite exceptionnelle avec une flotte réelle, propre et garantie aux meilleurs prix au Maroc. Livraison rapide à Rabat, Salé et Témara.",
+        explore_btn: "Explorer la flotte",
+        book_now_btn: "Réserver",
+        fleet_title: "Notre Flotte de Véhicules",
+        fleet_desc: "Voitures réelles, entièrement équipées et entretenues avec soin pour tous vos besoins",
+        tag_popular: "Plus demandé",
+        tag_modern: "Moderne",
+        tag_luxury: "De Luxe",
+        logan_desc: "Voiture confortable, extrêmement économique en carburant, idéale pour les familles et longs trajets.",
+        clio_desc: "Grand luxe, technologies avancées, confort de voyage maximal et look distinctif pour vos occasions.",
+        spec_diesel: "Diesel économique",
+        spec_ac: "Climatisation excellente",
+        spec_bag: "Grand coffre",
+        spec_screen: "Écran tactile & Bluetooth",
+        spec_urban: "Facile à garer et conduire",
+        spec_lux_interior: "Intérieur haut de gamme",
+        spec_tech: "Aide à la conduite",
+        spec_quiet: "Isolation phonique supérieure",
+        daily_price: "Prix par jour",
+        book_whatsapp: "Réserver via WhatsApp",
+        about_tag: "À propos",
+        about_title: "Agence FISKA CAR à Rabat & Témara",
+        about_desc1: "Nous sommes une agence leader en location de voitures à Rabat, Salé et Témara. Nous offrons des services d'exception axés sur le professionnalisme et la confiance.",
+        about_desc2: "Tous nos véhicules sont réels, garantis et soumis à des contrôles rigoureux pour votre sécurité.",
+        stat_safe: "Voitures réelles et sûres",
+        stat_support: "Support et assistance 24/7",
+        booking_title: "Réservation via WhatsApp",
+        booking_subtitle: "Remplissez les informations ci-dessous pour confirmer instantanément sur WhatsApp",
+        form_name: "Nom complet",
+        form_phone: "Numéro de téléphone",
+        form_car: "Sélectionner la voiture",
+        form_location: "Lieu de livraison",
+        form_start: "Date de début",
+        form_end: "Date de fin",
+        form_submit: "Envoyer la demande sur WhatsApp",
+        testi_title: "Avis de nos clients",
+        testi_desc: "Témoignages authentiques de clients satisfaits à Rabat et Témara",
+        testi_1: "\"Service excellent et professionnel. Véhicule livré à Témara à l'heure et très propre. Merci FISKA CAR.\"",
+        testi_2: "\"La meilleure agence. Tarifs très corrects sur la Logan, accueil très chaleureux.\"",
+        testi_3: "\"Renault Clio 5 au top, très luxueuse. Réservation simple et rapide via WhatsApp. Je recommande fortement.\"",
+        faq_title: "Foire Aux Questions",
+        faq_desc: "Réponses à vos questions concernant les conditions et tarifs de location",
+        faq_q1: "Quelles sont les conditions requises ?",
+        faq_a1: "Un permis de conduire valide, une carte d'identité ou passeport, et un âge minimum de 21 ans.",
+        faq_q2: "Les tarifs incluent-ils l'assurance et la livraison ?",
+        faq_a2: "Oui, nos tarifs sont transparents avec la livraison possible à Rabat et Témara.",
+        faq_q3: "Comment confirmer rapidement une réservation ?",
+        faq_a3: "Remplissez le formulaire sur le site et cliquez sur WhatsApp, ou contactez-nous directement.",
+        map_title: "Notre Localisation - Rabat & Témara",
+        map_desc: "Nous couvrons tous les quartiers de Rabat, Salé et Témara avec service aéroport et gares.",
+        contact_tag: "Contactez-nous",
+        contact_title: "Contactez l'agence FISKA CAR",
+        contact_desc: "Notre équipe est à votre disposition 7j/7 pour répondre à vos demandes.",
+        contact_address: "Rabat / Témara, Maroc",
+        hours_title: "Heures d'ouverture",
+        days_week: "Lundi - Samedi",
+        days_sun: "Dimanche",
+        hours_sun: "09:00 - 20:00",
+        chat_whatsapp: "Chat instantané WhatsApp",
+        footer_rights: "Tous droits réservés - Rabat & Témara."
+      }
+    };
+
+    let currentLang = 'ar';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'fr' : 'ar';
+      const root = document.getElementById('htmlRoot');
+      root.setAttribute('lang', currentLang);
+      root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.innerText = translations[currentLang][key];
+        }
+      });
+    }
+
+    function sendWhatsAppBooking() {
+      const name = document.getElementById('fullName').value;
+      const phone = document.getElementById('phone').value;
+      const car = document.getElementById('carSelect').value;
+      const location = document.getElementById('location').value;
+      const start = document.getElementById('startDate').value;
+      const end = document.getElementById('endDate').value;
+
+      if (!name || !phone || !location || !start || !end) {
+        alert(currentLang === 'ar' ? 'المرجو ملء جميع معلومات الحجز!' : 'Veuillez remplir toutes les informations !');
+        return;
+      }
+
+      const message = currentLang === 'ar' 
+        ? `السلام عليكم، بغيت نحجز سيارة:\n- الاسم: ${name}\n- الهاتف: ${phone}\n- السيارة: ${car}\n- مكان الاستلام: ${location}\n- من تاريخ: ${start}\n- إلى تاريخ: ${end}`
+        : `Bonjour, je souhaite réserver une voiture :\n- Nom : ${name}\n- Tél : ${phone}\n- Véhicule : ${car}\n- Lieu : ${location}\n- Du : ${start}\n- Au : ${end}`;
+
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/212622177043?text=${encodedMessage}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
